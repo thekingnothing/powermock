@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.org/jayway/powermock.svg)](https://travis-ci.org/jayway/powermock)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.powermock/powermock/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.powermock/powermock)
 [![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.powermock/powermock/badge.svg)](http://www.javadoc.io/doc/org.powermock/powermock)
+[![Dependency Status](https://www.versioneye.com/user/projects/56da744cbfdb330030419e61/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56da744cbfdb330030419e61)
+
+Usage status: Mockito: [![Reference Status](https://www.versioneye.com/java/org.powermock:powermock-api-mockito/reference_badge.svg?style=flat)](https://www.versioneye.com/java/org.powermock:powermock-api-mockito/references) Easymock: [![Reference Status](https://www.versioneye.com/java/org.powermock:powermock-api-easymock/reference_badge.svg?style=flat)](https://www.versioneye.com/java/org.powermock:powermock-api-easymock/references) jUnit: [![Reference Status](https://www.versioneye.com/java/org.powermock:powermock-module-junit4/reference_badge.svg?style=flat)](https://www.versioneye.com/java/org.powermock:powermock-module-junit4/references) TestNG [![Reference Status](https://www.versioneye.com/java/org.powermock:powermock-module-testng/reference_badge.svg?style=flat)](https://www.versioneye.com/java/org.powermock:powermock-module-testng/references)
 
 Writing unit tests can be hard and sometimes good design has to be sacrificed for the sole purpose of testability. Often testability corresponds to good design, but this is not always the case. For example final classes and methods cannot be used, private methods sometimes need to be protected or unnecessarily moved to a collaborator, static methods should be avoided completely and so on simply because of the limitations of existing frameworks.
 
@@ -34,7 +37,9 @@ Please note that PowerMock is mainly intended for people with expert knowledge i
   * [Mock New](https://github.com/jayway/powermock/wiki/MockConstructor)
   * [Mock Partial](https://github.com/jayway/powermock/wiki/MockPartial)
   * [Replay and verify all](https://github.com/jayway/powermock/wiki/ReplayAllAndVerifyAll)
-* [Mockito](https://github.com/jayway/powermock/wiki/MockitoUsage) ([Legacy](https://github.com/jayway/powermock/wiki/MockitoUsage_Legacy))
+* Mockito
+  * [Mockito 1.8+](MockitoUsage)
+  * [Mockito 1.7](MockitoUsage_Legacy)
 * Common
   * [Bypass Encapsulation](https://github.com/jayway/powermock/wiki/BypassEncapsulation)
   * [Suppress Unwanted Behavior](https://github.com/jayway/powermock/wiki/SuppressUnwantedBehavior)
@@ -60,5 +65,5 @@ Join the mailing-list [here](http://groups.google.com/group/powermock) for quest
 * [Mailing list for questions and support](http://groups.google.com/group/powermock)
  
 ## Sponsored by:
-[![JAYWAY](http://www.arctiquator.com/oppenkallkod/assets/images/jayway_logo.png)](http://www.jayway.com/)
+[![JAYWAY](http://www.jayway.com/wp-content/uploads/2014/05/jayway_rgb_inverted.png)](http://www.jayway.com/)
 

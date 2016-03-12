@@ -15,7 +15,9 @@
  */
 package org.powermock.modules.testng;
 
+import org.powermock.core.agent.JavaAgentClassRegister;
 import org.powermock.modules.agent.PowerMockAgent;
+import org.powermock.modules.agent.support.JavaAgentClassRegisterImpl;
 import org.powermock.modules.agent.support.PowerMockAgentTestInitializer;
 import org.testng.IObjectFactory;
 import org.testng.internal.ObjectFactoryImpl;
@@ -27,19 +29,24 @@ import java.lang.reflect.Constructor;
  */
 public class PowerMockObjectFactory implements IObjectFactory {
 
-     static {
-        if(PowerMockObjectFactory.class.getClassLoader() != ClassLoader.getSystemClassLoader()) {
-            throw new IllegalStateException("PowerMockObjectFactory can only be used with the system classloader but was loaded by "+PowerMockObjectFactory.class.getClassLoader());
+    static {
+        if (PowerMockObjectFactory.class.getClassLoader() != ClassLoader.getSystemClassLoader()) {
+            throw new IllegalStateException("PowerMockObjectFactory can only be used with the system classloader but was loaded by " + PowerMockObjectFactory.class.getClassLoader());
         }
         PowerMockAgent.initializeIfPossible();
     }
 
-    private ObjectFactoryImpl defaultObjectFactory = new ObjectFactoryImpl();
+    private final ObjectFactoryImpl defaultObjectFactory;
+
+    public PowerMockObjectFactory() {
+        defaultObjectFactory = new ObjectFactoryImpl();
+    }
 
     @Override
     public Object newInstance(Constructor constructor, Object... params) {
         final Class<?> testClass = constructor.getDeclaringClass();
-        PowerMockAgentTestInitializer.initialize(testClass);
+        JavaAgentClassRegister agentClassRegister = new JavaAgentClassRegisterImpl();
+        PowerMockAgentTestInitializer.initialize(testClass, agentClassRegister);
         return defaultObjectFactory.newInstance(constructor, params);
     }
 }
